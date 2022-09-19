@@ -2,8 +2,9 @@
  - 리액트 관련 Core function 보유
 
 ### 2. import ReactDOM from "react-dom"
- - React와 브라우저 DOM과 연결시켜주는 역할
- - ReactDOM을 이용해 원하는 컴포넌트를 렌더링함
+ - 공식 문서에는 React 모델 외부로 나갈 수 있는 탈출구로 사용할 수 있는 DOM 관련 메서드를 제공한다고 기술된다.
+ - 즉, React와 브라우저 DOM과 연결시켜주는 역할
+ - ReactDOM을 이용해 원하는 컴포넌트를 렌더링한다.
  - React 요소를 렌더링하려면 먼저 DOM 요소를 ReactDOM.createRoot()에 전달한 후, 다음 React 요소를 root.render()에 전달한다.
  - 아래 예제에서, 하나의 root DOM 노드가 있다. 이제, 이 root 안에 들어가는 모든 엘리먼트를 React DOM에서 관리하게 된다.
 
@@ -38,8 +39,37 @@
     );
  ```
 
- ### 4. JSX
+### 4. JSX
  - 자바스크립트 확장 문법
  - 하나의 파일에 자바스크립트와 HTML을 동시에 작성할 수 있도록 해주고, 브라우저에서 실행되기 전 바벨을 사용해 일반 자바스크립트 형태의 코드로 변환된다.
  - JSX는 Virtual DOM에서 컴포넌트 변화를 감지할 때 효율적으로 비교해야 하기 때문에, 컴포넌트 내부는 하나의 DOM트리 구조로 이루어져 있어야한다. 즉, 하나의 부모요소가 감싸는 형식으로 구성되어야합니다.
  - JSX는 CSS 병행작업 시, 시각적으로 도움이 되고, 개발하며 React가 우리에게 직관적으로 도움이 되는 경고 및 에러메시지를 발생시킨다.
+
+
+### 5. Event Example
+ - onClick : 클릭 시 발생
+ - onKeyUp : 키 입력 후, 눌린 키가 올라올 때 발생
+    ```
+    function App() {
+
+    const onSubmit = (e) => {
+        alert('submit');
+    }
+
+    const onKeyUp = (e) =>{
+        if (e.keyCode === 13){ // event.keyCode가 Enter key(13) 를 감지할 경우를 의미
+            onSubmit(); 
+        }
+    }
+
+    return (
+        <React.Fragment>
+        <Reset />
+        <div>
+            <input onKeyUp={onKeyUp}/>
+            <button onClick={onSubmit}>SUBMIT</button>
+        </div>
+        </React.Fragment>
+    );
+    }
+    ```

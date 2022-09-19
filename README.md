@@ -15,7 +15,19 @@ Project - MyTodoList
 ****
 # 2. Install
 
-## 2.1. Install & Run React
+## 2.2. Install Node.js
+ - Node.js를 설치해야, React Project를 생성하고, 사용할 수 있습니다.
+ - Node.js 설치는 아래명령어로 확인할 수 있습니다.
+    ```
+    node -v
+    ```
+
+ - npm 설치를 확인합니다.
+    ```
+    npm -v
+    ```
+    
+## 2.2. Install & Run React
  - Create React App으로, React Project를 설치합니다.
     ```
     npx create-react-app [project_name]

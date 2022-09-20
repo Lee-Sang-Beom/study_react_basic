@@ -1,3 +1,12 @@
+### 0. public/index.html
+ - React App을 브라우저에서 열면, 제일 먼저 가져오는 파일이 index.html
+ - index.html을 가져오고, react 관련 코드들이 아래에 담긴다.
+ ```
+ <div id='root'>
+     <!-- 여기 -->
+ </div>
+ ```
+
 ### 1. import React from "React"
  - 리액트 관련 Core function 보유
 
@@ -15,6 +24,23 @@
     const element = <h1>Hello, world</h1>;
     root.render(element);
     ```
+
+ - 실제로는 index.js에서 아래와 같은 코드를 볼 수 있다.
+ - 이것은 App이라는 컴포넌트를 불러와, 이것을 index.html 상의 'root' id를 가지는 요소 안에 렌더하라는 의미이다.
+ - 이는 ```<div id = "root"></div> ``` 내부를 의미한다.
+    ```
+    import App from './App';
+
+    ...
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+    );
+    ```
+
 
 ### 3. Strict 모드
  - 애플리케이션의 잠재적 문제를 알아내기 위한 도구 (개발 모드에서만 활성화)
@@ -72,4 +98,49 @@
         </React.Fragment>
     );
     }
+    ```
+
+### 6. Component
+ - 과거에는 클래스형 컴포넌트를 주로 사용했다.
+ - react v16.8(2019)부터는 함수형 컴포넌트와 리액트 훅을 지원한다.
+
+ - 함수형 컴포넌트는 클래스형 컴포넌트보다 선언하기가 좀 더 편하고, 메모리 자원을 덜 사용한다는 장점이 있다. 
+ - 과거에는 함수형 컴포넌트에서 state와 라이프사이클 API를 사용할 수 없다는 단점이 있었는데, 이러한 단점은 앞서 언급한 것처럼 리액트 훅이 도입되면서 해결되었다. 
+
+ - 함수형 컴포넌트는 일반적인 함수 선언방식이 있고, ES6의 화살표 함수가 있다.
+ - 둘의 차이는 this와 관련이 있다.
+    > 일반 함수는 자신이 종속된 객체를 this로 가리킨다.
+
+    > 일반 함수는 함수를 선언할 때 this에 바인딩할 객체가 정적으로 결정되는 것이 아니고, 함수를 호출할 때 함수가 어떻게 호출되었는지에 따라 this에 바인딩할 객체가 동적으로 결정된다.
+
+    > 화살표 함수는 자신이 종속된 인스턴스를 가리킨다.
+
+    > 화살표 함수를 선언할 때 this에 바인딩할 객체가 정적으로 결정된다. 화살표 함수의 this는 언제나 상위 스코프의 this(렉시컬 this)를 가리킨다
+
+    ```
+    function BlackDog() {
+        this.name = '흰둥이';
+            return {
+                name: '검둥이',
+                bark: function() {
+                console.log(this.name + ': 멍멍!');
+                }
+        }
+    }
+
+    const blackDog = new Blackdog();
+    blackDog.bark(); // 검둥이: 멍멍!
+
+    function WhiteDog() {
+        this.name = '흰둥이';
+        return {
+                name: '검둥이',
+                bark: () => {
+                console.log(this.name + ': 멍멍!');
+            }
+        }
+    }
+
+    const whiteDog = new Whitedog();
+    whiteDog.bark(); // 흰둥이: 멍멍!
     ```

@@ -15,6 +15,7 @@ function App() {
   const upRef = () => {
     countRef.current += 1;
     console.log(countRef.current);
+    alert('없애주세요');
   }
 
   const focusUp = () => {

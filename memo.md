@@ -153,3 +153,52 @@
  - 따라서, 코드를 간결하게 하기 위해 React Fragment를 사용할 수 있다.
  - <></> 혹은 <React.Fragment></React.Fragment> 등으로 사용한다.
  - <></>에는 key를 지정할 수 없다.
+
+### 8. useState
+ - React Hooks가 나오기 전에는 컴포넌트의 상태 관리를 하려면 클래스 기반 React 컴포넌트를 사용했어야 했다.
+ - 함수형 컴포넌트에서도 상태를 관리할 수 있게 할 수 있도록 만들어진 React Hooks이다.
+ - 사용 시 주의해야 할 점이 아래와 같다. 아래의 예제는 버튼 클릭 시, number값을 2배로 늘려주고, number값을 출력하는 예제이다. 
+    ```
+    const [number,setNumber] = useState(1);
+    const double = () => {
+        setNumber(number*2);
+        console.log(number);
+    }
+    return (
+            <React.Fragment>
+            <Reset />
+            <div>
+                <div>
+                {number}
+                </div>
+                <button onClick={double}>update</button>
+
+            </div>
+            </React.Fragment>
+        );
+    }
+    ```
+
+ - 위에서, 최초 state값이 1인 상태에서 버튼을 클릭할 경우, 콘솔에 2가 찍힐 것 같으나 1이 찍힌다.
+ - 이유는, 컴포넌트가 리렌더링됐을 때 발생하는 방식이, 리렌더링 전에 state를 한번에 업데이트하고 리렌더링하기 때문이다. 즉, state를 업데이트하고 리렌더링했기 때문이다.
+
+ - 만약, 버튼을 눌렀을 때 아래와 같은 코드를 수행한다고 치자.
+    ```
+    const double = () => {
+        setNumber(number*2);
+        setNumber2(number2*2);
+        setNumber3(number3*2);
+    }
+    ```
+- 만약, setNumber로 state를 변경했다고 해서 렌더링을 바로 수행해버리면, setNumber2, setNumber3까지 수행할 경우, 렌더링 과정이 총 3회 이루어진다. 이는 비효율적이다.
+
+- 그래서, setState를 수행해 준 후, 리렌더링되기 직전에 state를 모두 바꿔버림으로써 총 렌더링을 1회만 수행하게 한다. 따라서, 위 예제에서의 console.log() 결과가 1인 것이다.
+
+- 만약, console.log()결과로 원하는 값을 출력하려면 아래와 같이 사용하여야 한다.
+    ```
+    const double = () => {
+        const doubledNumber= number*2;
+        setNumber(doubledNumber);
+        console.log(doubledNumber);
+    }
+    ```

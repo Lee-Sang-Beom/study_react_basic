@@ -157,7 +157,11 @@
 ### 8. useState
  - React Hooks가 나오기 전에는 컴포넌트의 상태 관리를 하려면 클래스 기반 React 컴포넌트를 사용했어야 했다.
  - 함수형 컴포넌트에서도 상태를 관리할 수 있게 할 수 있도록 만들어진 React Hooks이다.
- - 사용 시 주의해야 할 점이 아래와 같다. 아래의 예제는 버튼 클릭 시, number값을 2배로 늘려주고, number값을 출력하는 예제이다. 
+ 
+ - setState는 비동기적으로 작동한다. 즉, setState로 변경한 state값은 즉시 적용되지 않는다는 의미이다.
+ - setState로 상태 값을 여러번 변경하려고 할 때마다 React에서는 즉각적으로 state에 변경된 상태값을 적용시키지 않는다. 만약 상태값이 변경 될 때 마다 렌더링을 시켜주는 React에서 매번 상태값을 즉각적으로 변경시킬때 마다 렌더링이 된다면 매우 비효율적이지 않을까?
+
+ - 그래서 사용 시 주의해야 할 점이 아래와 같다. 아래의 예제는 버튼 클릭 시, number값을 2배로 늘려주고, number값을 출력하는 예제이다. 
     ```
     const [number,setNumber] = useState(1);
     const double = () => {
@@ -200,5 +204,29 @@
         const doubledNumber= number*2;
         setNumber(doubledNumber);
         console.log(doubledNumber);
+    }
+    ```
+
+### 9. useState - prevState
+ - setState에서 prevState라는 것을 사용할 수도 있다. 이는 setState으로 미리 변경된 상태값을 바로 땡겨와서 변경될 state에 적용시키는 방법이다. 아래 예제를 살펴보자.
+ - 아래 예제에서는, number*2*2 값을 출력하고 싶지만, 리렌더링 직전에 state 변경이 반영되기 때문에 원하는대로 state값이 변하지 않는다.
+    ```
+    const double = () => {
+        // number*2*2한 값을 출력하고 싶음
+        setNumber(number*2); // state가 setNumber를 한다고해서 바로 반영되지 않음. 리렌더링 직전에 반영
+        setNumber(number*2); // 따라서, 리렌더링 직전에 state를 변경함. 이 줄의 setNumber만 수행됨
+    }
+    ```
+
+ - 하지만, setState의 prevState를 인자로하는 콜백함수를 사용하면 정상적으로 수행되는 것을 확인할 수 있다.
+ - prevState는 말 그대로 이전상태를 의미한다.
+    ```
+    const double = () => {
+        setNumber((prevState) => {
+            return prevState*2; // 1->2
+        })
+        setNumber((prevState) => {
+            return prevState*2; // 2->4
+        })
     }
     ```

@@ -5,10 +5,16 @@ function App() {
 
   const [number,setNumber] = useState(1);
   const double = () => {
-    const doubledNumber= number*2;
-    setNumber(doubledNumber);
-    console.log(doubledNumber);
+    // number*2*2한 값을 출력하고 싶음
+    setNumber((prevState) => {
+      return prevState*2;
+    })
+    setNumber((prevState) => {
+      return prevState*2;
+    })
+    
   }
+
   return (
     <React.Fragment>
       <Reset />

@@ -2,20 +2,19 @@ Project - MyTodoList
 ======================
 
 ## 1. 프로젝트 계획 이유
-- React를 사용하며, state를 관리하는 방법에 대해 다시 공부하기 위해서
-- ...
+- React를 사용하며, state를 관리하는 방법에 대해 개념적인 내용을 다시 공부하기 위해 계획하였습니다.
 
 ### - 제공기능
 	1. 
 	2. 
 	3. 
-    4. 
-    5. 
+   4. 
+   5. 
 
 ****
 # 2. Install
 
-## 2.2. Install Node.js
+## 2.1. Install Node.js
  - Node.js를 설치해야, React Project를 생성하고, 사용할 수 있습니다.
  - Node.js 설치는 아래명령어로 확인할 수 있습니다.
     ```
@@ -40,3 +39,10 @@ Project - MyTodoList
     ```
     npm start
     ```
+
+## 2.3. Bootstrap
+ - public/index.html에 아래의 코드를 삽입하여 사용합니다.
+   ```
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+   ```

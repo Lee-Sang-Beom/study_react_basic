@@ -1,30 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Reset } from "styled-reset";
 
 function App() {
 
-  const [number,setNumber] = useState(1);
-  const double = () => {
-    // number*2*2한 값을 출력하고 싶음
-    setNumber((prevState) => {
-      return prevState*2;
-    })
-    setNumber((prevState) => {
-      return prevState*2;
-    })
-    
-  }
-
+  const [title, setTitie] = useState('');
   return (
     <React.Fragment>
       <Reset />
-      <div>
-        <div>
-          {number}
+      <div className="container">
+        <div className="mb-3">
+          <label className="form-label">TITLE</label>
+          <input className="form-control" value={title} onChange={(e)=>{setTitie(e.target.value); console.log(e.target.value)}}/>
         </div>
-        <button onClick={double}>update</button>
-
+        <button className ="btn btn-primary">POST</button>
       </div>
+      
     </React.Fragment>
   );
 }

@@ -28,7 +28,6 @@ function App() {
         {/* post */}
         <button className ="btn btn-primary" onClick={onSubmit} >POST</button>
       </div>
-      
     </React.Fragment>
   );
 }

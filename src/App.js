@@ -2,31 +2,52 @@ import React, { useState } from "react";
 import { Reset } from "styled-reset";
 
 function App() {
+  const [title, setTitie] = useState("");
+  const [body, setBody] = useState("");
 
-  const [title, setTitie] = useState('');
-  const [body, setBody] = useState('');
-
-  const onSubmit = () =>{
+  const onSubmit = () => {
     console.log(title, body);
-  }
+  };
   return (
     <React.Fragment>
       <Reset />
       <div className="container">
-        {/* title */}
-        <div className="mb-3">
-          <label className="form-label">TITLE</label>
-          <input className="form-control" value={title} onChange={(e)=>{setTitie(e.target.value);}}/>
-        </div>
+        <div>
+          {/* page name */}
+          <div className ="my-5 border-bottom border-secondary pb-2 w-50 mx-auto">
+            <h1 className = "fw-bold text-center fs-2 ">STUDY REACT</h1>
+          </div>
+          {/* title */}
+          <div className="mb-3">
+            <label className="form-label fw-semibold">TITLE</label>
+            <input
+              className="form-control"
+              value={title}
+              placeholder = "Input title name"
+              onChange={(e) => {
+                setTitie(e.target.value);
+              }}
+            />
+          </div>
+          {/* body */}
+          <div className="mb-3">
+            <label className="form-label fw-semibold">BODY</label>
+            <textarea
+              className="form-control"
+              placeholder = "Input your comment"
+              rows={15}
+              value={body}
+              onChange={(e) => {
+                setBody(e.target.value);
+              }}
+            ></textarea>
+          </div>
 
-        {/* body */}
-        <div className="mb-3">
-          <label className="form-label">BODY</label>
-          <textarea className="form-control" rows={15} value={body} onChange={(e)=>{setBody(e.target.value)}}></textarea>
+          {/* post */}
+          <button className="btn btn-primary fw-semibold" onClick={onSubmit}>
+            POST
+          </button>
         </div>
-
-        {/* post */}
-        <button className ="btn btn-primary" onClick={onSubmit} >POST</button>
       </div>
     </React.Fragment>
   );

@@ -46,3 +46,38 @@ Project - MyTodoList
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
    ```
+
+## 2.4. Json-server
+ - install json server
+   ```
+   npm install json-server
+   ```
+
+- create a [db.json] file with some data
+  ```
+   {
+      "posts": [
+         { "id": 1, "title": "json-server", "author": "typicode" }
+      ],
+      "comments": [
+         { "id": 1, "body": "some comment", "postId": 1 }
+      ],
+      "profile": { "name": "typicode" }
+   }
+  ```
+
+- start json server
+  ```
+  json-server --watch db.json
+  ```
+
+- change port
+  ```
+  json-server --watch db.json --port 3001
+  ```
+
+## 2.5. Axios
+ - install axios
+   ```
+   npm install axios
+   ```

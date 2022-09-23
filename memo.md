@@ -232,3 +232,51 @@
     ```
 
 
+### 10. GET, POST, PUT, PATCH, DELETE
+ - GET : 클라이언트에서 서버로부터 리소스 정보를 요청하기 위해 사용
+ ```
+    axios.get('https://localhost:3000/login/user')
+    .then((Response)=>{console.log(Response.data)})
+    .catch((Error)=>{console.log(Error)})
+ ```
+
+ - POST : 클라이언트에서 서버로 리소스를 생성하거나 업데이트하기 위해 데이터를 보낼 때 사용
+ ```
+ 1) 예시 1
+    axios.post( 'url', 
+    {
+        contact: 'JungHo',
+        email: 'wjdgh0727@gmail.com'
+    },
+    {
+        headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+        }
+    ) 
+    .then((response) => {console.log(response.data); })
+    .catch((response) => {console.log('Error!') });
+
+2) 예시2 : 전송되는 프로퍼티와 값 이름이 같으면 아래처럼 생략해서 사용가능 
+    axios.post('http://localhost:3000/posts',{
+      // title: title,
+      // body: body
+      title, 
+      body
+    })
+ ```
+
+
+
+ - PUT : 데이터 전체를 업데이트 할 때 사용
+ - PATCH : 데이터 부분을 업데이트 할 때 사용
+ - DELETE : 데이터를 삭제할 때 사용
+    
+
+
+### 11. axios
+ - Axios는 브라우저, Node.js를 위해서 만들어진 Promise API를 활용하는 HTTP 비동기 통신 라이브러리이다.
+ - Axios는 운영환경에 따라서 브라우저간 XMLHttpRequest 객체 또는 Node.js의 HTTP API를 사용한다.
+ - Promise(ES6) API를 사용하고, 요청(Request) 응답 (reply)을 JSON 형태로 자동 변경한다.
+
+

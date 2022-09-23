@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Reset } from "styled-reset";
 
@@ -6,8 +7,17 @@ function App() {
   const [body, setBody] = useState("");
 
   const onSubmit = () => {
-    console.log(title, body);
+    // axios lib > post
+    axios.post('http://localhost:3001/posts',{
+      // title: title,
+      // body: body
+      title, 
+      body
+    });
+
+    alert("저장되었습니다.");
   };
+
   return (
     <React.Fragment>
       <Reset />

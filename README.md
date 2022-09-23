@@ -76,6 +76,13 @@ Project - MyTodoList
   json-server --watch db.json --port 3001
   ```
 
+- add db script : ./package.json (npm run db)
+  ```
+    "scripts": {
+    "db" : "json-server --watch db.json --port 3001", 
+  },
+  ```
+
 ## 2.5. Axios
  - install axios
    ```

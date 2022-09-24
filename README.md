@@ -95,8 +95,17 @@ Project - MyTodoList
    npm install react-router-dom
    ```
 
-## 2.7 react typeit
+## 2.7 React typeit
  - install typeit(ract)
    ```
    npm i typeit-react
    ```
+
+## 2.8 FontAwesome
+ - install 
+   ```
+   npm i --save @fortawesome/fontawesome-svg-core
+   npm install --save @fortawesome/free-solid-svg-icons
+   npm install --save @fortawesome/react-fontawesome
+   ```
+ - use : https://hymndev.tistory.com/47

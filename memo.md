@@ -279,4 +279,29 @@
  - Axios는 운영환경에 따라서 브라우저간 XMLHttpRequest 객체 또는 Node.js의 HTTP API를 사용한다.
  - Promise(ES6) API를 사용하고, 요청(Request) 응답 (reply)을 JSON 형태로 자동 변경한다.
 
+### 12. React-router
+ - SPA기반 React를 여러 페이지로 구성하기 위해 사용
+ - npm install react-router-dom
+ - import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom" 등으로 사용
 
+ - Router(BrowserRouter)가 감싸는 형태로시작
+ - Link to는 해당 위치로 이동할 a태그라고 생각
+ - ```<Routes>``` 안에, ```<Route path="">```로 Link to에 작성한 path로 이동 시 출력할 내용을 구성
+ - 출력할 내용은 컴포넌트 식으로 element={}에 작성
+
+ ```
+<Router>
+    <div>
+        <Link to="/">Home</Link>
+        <Link to="/blogs">Blogs</Link>
+    </div>
+    <Routes>
+        <Route path="/" exact element={<Home/>}>
+        {/* 위 Link to = "/"로 맞춘 부분으로 사용자가 접근하면 이 부분을 보여줌 */}
+        </Route>
+        <Route path="/blogs" element= {<Blogs/>}>
+        {/* 위 Link to = "/blogs"로 맞춘 부분으로 사용자가 접근하면 이 부분을 보여줌 */}
+        </Route>
+    </Routes>
+</Router>
+ ```

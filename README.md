@@ -88,3 +88,9 @@ Project - MyTodoList
    ```
    npm install axios
    ```
+
+## 2.6 React Router dom
+ - install react-router-dom
+   ```
+   npm install react-router-dom
+   ```

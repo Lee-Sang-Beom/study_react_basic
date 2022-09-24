@@ -3,12 +3,10 @@ import { Reset } from "styled-reset";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import React from "react";
 import Navigation from "./Components/Navigation";
-import CreatePage from "./pages/CreatePage";
-import EditPage from "./pages/EditPage";
-import HomePage from "./pages/HomePage";
-import ListPage from "./pages/ListPage";
+import routes from "./routes.js";
 
 function App() {
+
   return (
     <React.Fragment>
       <Reset />
@@ -16,10 +14,11 @@ function App() {
         <Navigation/>
         <div className="container">
           <Routes>
-            <Route path="/" exact element={<HomePage/>}/>
-            <Route path="/blogs" exact element= {<ListPage/>}/>
-            <Route path="/blogs/create" exact element= {<CreatePage/>}/>
-            <Route path="/blogs/edit" exact element= {<EditPage/>}/>
+            {
+              routes.map((item) => (
+                <Route key={item.path} path={item.path} exact element={item.component}/>
+              ))
+            }
           </Routes>
         </div>     
       </Router>

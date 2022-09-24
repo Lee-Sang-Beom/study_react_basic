@@ -12,14 +12,12 @@ function App() {
       <Reset />
       <Router>
         <Navigation/>
-        <Routes>
-          <Route path="/" exact element={<Home />}>
-            {/* 위 Link to = "/"로 맞춘 부분으로 사용자가 접근하면 이 부분을 보여줌 */}
-          </Route>
-          <Route path="/blogs" element= {<Blogs/>}>
-            {/* 위 Link to = "/"로 맞춘 부분으로 사용자가 접근하면 이 부분을 보여줌 */}
-          </Route>
-        </Routes>
+        <div className="container">
+          <Routes>
+            <Route path="/" exact element={<Home/>}/>
+            <Route path="/blogs" element= {<Blogs/>}/>
+          </Routes>
+        </div>     
       </Router>
     </React.Fragment>
   );

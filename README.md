@@ -94,3 +94,9 @@ Project - MyTodoList
    ```
    npm install react-router-dom
    ```
+
+## 2.7 react typeit
+ - install typeit(ract)
+   ```
+   npm i typeit-react
+   ```

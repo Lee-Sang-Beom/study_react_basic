@@ -16,7 +16,7 @@ export default function Navigation() {
             <ul className="navbar-nav">
               {/* home */}
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-link" aria-current="page" to="/">
                   <button
                     type="button"
                     className="btn btn-outline-light border border-0 fw-semibold"
@@ -27,9 +27,9 @@ export default function Navigation() {
               </li>
 
               {/* blogs */}
-              <li className="nav-item ">
+              <li className="nav-item">
                 <Link
-                  className="nav-link active"
+                  className="nav-link"
                   aria-current="page"
                   to="/blogs"
                 >
@@ -45,7 +45,7 @@ export default function Navigation() {
               {/* blogs_create */}
               <li className="nav-item">
                 <Link
-                  className="nav-link active"
+                  className="nav-link"
                   aria-current="page"
                   to="/blogs/create"
                 >
@@ -61,7 +61,7 @@ export default function Navigation() {
               {/* blogs_edit */}
               <li className="nav-item">
                 <Link
-                  className="nav-link active"
+                  className="nav-link"
                   aria-current="page"
                   to="/blogs/edit"
                 >

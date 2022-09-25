@@ -280,7 +280,6 @@
  - Promise(ES6) API를 사용하고, 요청(Request) 응답 (reply)을 JSON 형태로 자동 변경한다.
 
 ### 12. React-router
- - SPA기반 React를 여러 페이지로 구성하기 위해 사용
  - npm install react-router-dom
  - import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom" 등으로 사용
 
@@ -292,6 +291,7 @@
  ```
 <Router>
     <div>
+        {/*이동 a태그*/}
         <Link to="/">Home</Link>
         <Link to="/blogs">Blogs</Link>
     </div>
@@ -305,3 +305,13 @@
     </Routes>
 </Router>
  ```
+ - 리액트는 첫 화면으로 이동할 때, 메인화면 뿐 아니라 다른페이지 정보까지(컴포넌트까지) 모두 미리받아옴
+ - 그래서 navbar 클릭시, 서버에 요청을 보내지 않고 부드럽고 빠르게 페이지가 전환됨 (main.chunk.js확인)
+ - 페이지 변경 시, 렌더링은 변화된 부분만 이루어진다 (HTML 코드가 변화된 일부분만 변경됨)
+
+ - React router는 내부적으로 a태그 사용
+ - 만약, 다른페이지를 요청해서 정보를 받아오고자 한다면, 
+   React router가 서버로 요청보내는 것을 중간에 가로채고 html history API를 통해 원하는 데이터를 ```<Route>``` 가 가지고 있는지 확인하고, 
+   가지고 있으면 해당 컴포넌트를 반환한다.
+
+ - 처음 실행 시, index.html을 한번만 받아오고, 그 html 안에서 js를 통해 페이지를 전환하기 때문에 여전히 하나의 페이지이다. 따라서 SPA

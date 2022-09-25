@@ -1,18 +1,18 @@
 {
   "posts": [
     {
-      "title": "as",
-      "body": "sa",
+      "title": "title1",
+      "body": "body1",
       "id": 1
     },
     {
-      "title": "123",
-      "body": "345",
+      "title": "title2",
+      "body": "body2",
       "id": 2
     },
     {
-      "title": "das",
-      "body": "das",
+      "title": "title3",
+      "body": "body3",
       "id": 3
     }
   ]

@@ -18,7 +18,9 @@ export default function ListPage() {
       <h1>blogs</h1>
       {posts &&
         posts.map((post) => (
-          <Card title={post.title} body={post.body} key={post.id}/>
+          <Card key={post.id} title={post.title}>
+            <button> VIEW </button>
+          </Card>
         ))}
     </>
   );

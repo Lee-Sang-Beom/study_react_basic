@@ -315,3 +315,28 @@
    가지고 있으면 해당 컴포넌트를 반환한다.
 
  - 처음 실행 시, index.html을 한번만 받아오고, 그 html 안에서 js를 통해 페이지를 전환하기 때문에 여전히 하나의 페이지이다. 따라서 SPA
+
+
+### 13. Component Chlidren
+ - Card라는 컴포넌트 내부에 ```<div>``` 태그가 다음과 같이 있는 경우
+ ```
+    <Card title={post.title} body={post.body} key={post.id}>
+        <div className="d-flex justify-content-between">
+            <div>{post.title}</div>
+            <button></button>
+        </div>
+    </Card>
+ ```
+
+ - 내부의 ```<div>``` 컨텐츠가 Card 컴포넌트의 {children} 영역으로 이동
+ ```
+    export default function Card({ children }) {
+        return (
+            <div className="card mt-3 mb-3">
+                <div className="card-body">
+                    {children}
+                </div>
+            </div>
+        );
+    }
+ ```

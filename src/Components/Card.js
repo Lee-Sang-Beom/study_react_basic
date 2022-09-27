@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-export default function Card({ children, title }) {
+export default function Card({ children, onClick, title }) {
   return (
-    <div className="card mt-3 mb-3">
+    <div className="card mt-3 mb-3 pointer" onClick={onClick} >
       <div className="card-body">
         <div className="d-flex justify-content-between align-items-center">
             <div>{title}</div>
@@ -14,11 +14,14 @@ export default function Card({ children, title }) {
 }
 
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.element,
+  title: PropTypes.string.isRequired, // string, 필수
+  children: PropTypes.element, // 컴포넌트
+  onClick: PropTypes.func, // 함수
 }
 
 Card.defaultProps = {
   children: null,
+  onClick: ()=>{}, // 빈 함수
+
 }
 

@@ -2,9 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "../Components/Card";
+import { useNavigate } from 'react-router-dom';
 
 export default function ListPage() {
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getPosts();
@@ -26,7 +28,7 @@ export default function ListPage() {
     </div>      
       {posts &&
         posts.map((post) => (
-          <Card key={post.id} title={post.title}>
+          <Card key={post.id} title={post.title} onClick={()=>navigate('/blogs/edit')}>
             <button> VIEW </button>
           </Card>
         ))}

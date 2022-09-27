@@ -362,3 +362,12 @@
 
     }
  ```
+
+ ### 15. useHistory | useNavigate
+ - history instance에 접근 후, history.push(path)로 페이지 이동이 가능하다.
+ - useHistory Hook은 react-router 5버전까지 사용할 수 있다. 최근에 나온 6버전에서는 useNavigate로 변경되었다.
+
+ ```  
+    const navigate = useNavigate(); // 인스턴스 생성
+    onClick={()=>navigate('/blogs/edit')} // 인스턴스(이동할 path)
+ ```

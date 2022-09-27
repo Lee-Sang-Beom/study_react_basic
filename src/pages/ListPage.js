@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "../Components/Card";
 
 export default function ListPage() {
@@ -15,7 +16,14 @@ export default function ListPage() {
 
   return (
     <>
+    <div className="d-flex justify-content-between align-items-center">
       <h1>blogs</h1>
+      <div>
+        <Link to = "/blogs/create" className="btn btn-primary">
+          New
+        </Link>
+      </div>
+    </div>      
       {posts &&
         posts.map((post) => (
           <Card key={post.id} title={post.title}>

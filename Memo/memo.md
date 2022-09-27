@@ -340,3 +340,25 @@
         );
     }
  ```
+
+### 14. props-type
+ - props 전달 시, type을 한정짓기 위해 사용
+ - 잘못된 type 전달 시, warning을 발생시킴
+ ```
+    import PropTypes from "prop-types"; // import
+
+    export default function Card({ children, title }) {
+    return (
+    );
+    }
+
+    Card.propTypes = { // 전달받는 title props는 string값
+        title: PropTypes.string, // PropTypes.string.isRequired : 무조건 보내도록 함
+        children: PropTypes.element, // props 전달 시, 무조건 element 타입 1개를 전달해야함. (ex: <h1>, <p>) 
+    }
+
+    Card.defaultProps = { // props를 전달받지 않은 경우, default값 설정
+        title: 'Title',
+
+    }
+ ```

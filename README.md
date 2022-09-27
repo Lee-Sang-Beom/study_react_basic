@@ -113,9 +113,11 @@ Project - MyTodoList
    ```
  - use : https://hymndev.tistory.com/47
 
-
-
-****
+## 2.9 Prop-types
+ - install 
+   ```
+   npm install prop-types
+   ```
 
 # 3. 느낀 점
 

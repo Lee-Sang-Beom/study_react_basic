@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function Card({ children, title }) {
   return (
     <div className="card mt-3 mb-3">
@@ -10,3 +12,13 @@ export default function Card({ children, title }) {
     </div>
   );
 }
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.element,
+}
+
+Card.defaultProps = {
+  children: null,
+}
+

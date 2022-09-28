@@ -371,3 +371,22 @@
     const navigate = useNavigate(); // 인스턴스 생성
     onClick={()=>navigate('/blogs/edit')} // 인스턴스(이동할 path)
  ```
+
+ ### 16. event bubbling
+ - 이벤트 버블링은 이벤트가 발생한 가장 안쪽의 요소인 target요소의 이벤트 핸들러가 동작하고, 
+가장 최상단 조상요소 (document 객체, 몇몇은 window객체)를 만날 때까지 부모 요소의 핸들러가 순차적으로 동작하는 흐름을 의미
+ - 이벤트 객체의 메서드인 event.stopPropagation()를 통해 핸들러에게 이벤트를 처리하도록 한 후, 버블링을 중단하도록 명령 가능
+ - 아래 에제는 버튼 클릭시 console.log('del') 수행 뿐 아니라, 부모요소의 navigate()까지 실행됨
+
+ ```
+    <Card key={post.id} title={post.title} onClick={()=>navigate('/blogs/edit')}>
+        <button className="btn btn-danger btn-sm" onClick={()=>{console.log('del')}}> 
+            Delete 
+        </button>
+    </Card>
+
+    <button className="btn btn-danger btn-sm" onClick={(e)=>{
+        console.log('del');
+        e.stopPropagation(); // event객체의 메소드인 stopPropagation()사용 시, target 부모요소로의 버블링이 중단
+    }}> Delete </button>
+ ```

@@ -29,7 +29,10 @@ export default function ListPage() {
       {posts &&
         posts.map((post) => (
           <Card key={post.id} title={post.title} onClick={()=>navigate('/blogs/edit')}>
-            <button> VIEW </button>
+            <button className="btn btn-danger btn-sm" onClick={(e)=>{
+              console.log('del');
+              e.stopPropagation();
+            }}> Delete </button>
           </Card>
         ))}
     </>

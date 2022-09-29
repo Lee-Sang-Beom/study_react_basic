@@ -16,6 +16,13 @@ export default function ListPage() {
     axios.get("http://localhost:3001/posts").then((res) => setPosts(res.data));
   };
 
+  const deleteBlog = (e, id) =>{
+    e.stopPropagation();
+    axios.delete(`http://localhost:3001/posts/${id}`).then(()=>{
+      setPosts(posts.filter((post)=>post.id!==id));
+    });
+  }
+
   return (
     <>
     <div className="d-flex justify-content-between align-items-center">
@@ -29,10 +36,7 @@ export default function ListPage() {
       {posts &&
         posts.map((post) => (
           <Card key={post.id} title={post.title} onClick={()=>navigate('/blogs/edit')}>
-            <button className="btn btn-danger btn-sm" onClick={(e)=>{
-              console.log('del');
-              e.stopPropagation();
-            }}> Delete </button>
+            <button className="btn btn-danger btn-sm" onClick={e => deleteBlog(e,post.id)}> Delete </button>
           </Card>
         ))}
     </>

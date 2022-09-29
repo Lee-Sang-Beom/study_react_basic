@@ -16,6 +16,8 @@ export default function Blogs() {
     });
 
     alert("저장되었습니다.");
+    setTitie("");
+    setBody("");
   };
 
   return (

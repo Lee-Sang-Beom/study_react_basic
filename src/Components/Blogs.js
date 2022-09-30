@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import TypeIt from "typeit-react";
 
 export default function Blogs() {
+  const navigate = useNavigate();
   const [title, setTitie] = useState("");
   const [body, setBody] = useState("");
 
@@ -18,6 +20,8 @@ export default function Blogs() {
     alert("저장되었습니다.");
     setTitie("");
     setBody("");
+    navigate('/blogs');
+    
   };
 
   return (

@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "../Components/Card";
 import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "../Components/LoadingSpinner";
 
 export default function ListPage() {
+  const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
@@ -12,8 +14,10 @@ export default function ListPage() {
     getPosts();
   }, []);
 
-  const getPosts = () => {
-    axios.get("http://localhost:3001/posts").then((res) => setPosts(res.data));
+  // spinner 동작 후, 내용이 있음에도 빈 블로그로 표시되는 모습을 await으로 수정
+  async function getPosts () {
+    await axios.get("http://localhost:3001/posts").then((res) => setPosts(res.data));
+    setLoading(false);
   };
 
   const deleteBlog = (e, id) => {
@@ -23,17 +27,21 @@ export default function ListPage() {
     });
   };
 
-  return (
-    <>
-      <div className="d-flex justify-content-between align-items-center">
-        <h1>blogs</h1>
+  const renderList = () =>{
+    if(loading){
+      return (
+        <LoadingSpinner/>
+      )
+    }
+
+    if(!posts.length){
+      return (
         <div>
-          <Link to="/blogs/create" className="btn btn-primary">
-            New
-          </Link>
+          빈 포스트입니다.
         </div>
-      </div>
-      {posts.length ? (
+      )
+    } else {
+      return (
         posts.map((post) => (
           <Card
             key={post.id}
@@ -48,9 +56,22 @@ export default function ListPage() {
             </button>
           </Card>
         ))
-      ) : (
-        <p>빈 포스트입니다</p>
-      )}
+      )
+
+    }
+  }
+
+  return (
+    <>
+      <div className="d-flex justify-content-between align-items-center">
+        <h1>blogs</h1>
+        <div>
+          <Link to="/blogs/create" className="btn btn-primary">
+            New
+          </Link>
+        </div>
+      </div>
+      {renderList()}
     </>
   );
 }

@@ -15,13 +15,13 @@ export default function Blogs() {
       // body: body
       title,
       body,
+      createAt: Date.now(),
+    }).then(() => {
+      alert("저장되었습니다.");
+      setTitie("");
+      setBody("");
+      navigate('/blogs');
     });
-
-    alert("저장되었습니다.");
-    setTitie("");
-    setBody("");
-    navigate('/blogs');
-    
   };
 
   return (

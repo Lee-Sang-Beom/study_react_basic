@@ -15,7 +15,7 @@ export default function Blogs() {
       // body: body
       title,
       body,
-      createAt: Date.now(),
+      createdAt: Date.now(),
     }).then(() => {
       alert("저장되었습니다.");
       setTitie("");

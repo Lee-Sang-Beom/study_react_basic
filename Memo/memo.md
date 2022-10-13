@@ -411,6 +411,6 @@
   ### 17. useParams
  - react-router에 의해 이동 완료된 페이지에서 import가능하며, 사용은 아래와 같다.
 ```
-    const { id } = useParams();
+    const { id } = useParams(); // route에 전달해준 값과 같은 이름으로 정해야함
 ```
  - route URL에 path값으로 전달한 id값과 같은 콜론과 연결되어 있는 값을 불러올 때 사용한다.

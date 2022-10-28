@@ -37,7 +37,17 @@ export default function ListPage() {
     }
 
     if (!posts.length) {
-      return <div>빈 포스트입니다.</div>;
+      return (
+        <>
+          <div
+            className="mt-3 alert alert-warning alert-dismissible fade show"
+            role="alert"
+          >
+            <span className="fw-semibold">OOPS!</span> I haven't created a blog
+            yet!
+          </div>
+        </>
+      );
     } else {
       return posts.map((post) => (
         <Card
@@ -61,7 +71,7 @@ export default function ListPage() {
       <div className="d-flex justify-content-between align-items-center">
         <p className="text-bg-dark position-relative p-2 rounded fw-semibold">
           BLOG
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             <span>{posts && posts.length}</span>
           </span>
         </p>

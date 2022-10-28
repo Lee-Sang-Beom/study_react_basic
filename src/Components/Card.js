@@ -22,6 +22,5 @@ Card.propTypes = {
 Card.defaultProps = {
   children: null,
   onClick: ()=>{}, // 빈 함수
-
 }
 

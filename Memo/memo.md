@@ -374,7 +374,6 @@
 
     Card.defaultProps = { // props를 전달받지 않은 경우, default값 설정
         title: 'Title',
-
     }
  ```
 

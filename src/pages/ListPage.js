@@ -20,14 +20,19 @@ export default function ListPage() {
       .get("http://localhost:3001/posts")
       .then((res) => setPosts(res.data));
     setLoading(false);
+
   }
 
   const deleteBlog = (e, id) => {
     e.stopPropagation();
     axios.delete(`http://localhost:3001/posts/${id}`).then(() => {
-      setPosts(posts.filter((post) => post.id !== id));
+      setPosts(posts.filter((post)=>{
+        return post.id !== id;
+      }));
+  
     });
 
+    
     window.alert("삭제되었습니다.");
   };
 

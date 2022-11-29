@@ -268,11 +268,20 @@
     })
  ```
 
+ - DELETE : 서버의 특정 리소스를 삭제하기 위해 사용
+ ```
+   const deleteBlog = (e, id) => {
+    e.stopPropagation();
+    axios.delete(`http://localhost:3001/posts/${id}`).then(() => {
+      setPosts(posts.filter((post) => post.id !== id));
+    });
 
-
+    window.alert("삭제되었습니다.");
+  };
+ ```
+ 
  - PUT : 데이터 전체를 업데이트 할 때 사용
  - PATCH : 데이터 부분을 업데이트 할 때 사용
- - DELETE : 데이터를 삭제할 때 사용
     
 
 
@@ -280,7 +289,10 @@
  - Axios는 브라우저, Node.js를 위해서 만들어진 Promise API를 활용하는 HTTP 비동기 통신 라이브러리이다.
  - Axios는 운영환경에 따라서 브라우저간 XMLHttpRequest 객체 또는 Node.js의 HTTP API를 사용한다.
  - Promise(ES6) API를 사용하고, 요청(Request) 응답 (reply)을 JSON 형태로 자동 변경한다.
+```
 
+
+```
 ### 12. React-router
  - npm install react-router-dom
  - import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom" 등으로 사용

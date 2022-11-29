@@ -10,10 +10,11 @@ Project - React Post
 ### - 제공기능
 	1. POST 작성, 삭제, 확인 기능
 
-****
-# 2. Install
+***
 
-## 2.1. Install Node.js
+## 2. Install
+
+### 2.1. Install Node.js
  - Node.js를 설치해야, React Project를 생성하고, 사용할 수 있습니다.
  - Node.js 설치는 아래명령어로 확인할 수 있습니다.
     ```
@@ -25,7 +26,7 @@ Project - React Post
     npm -v
     ```
     
-## 2.2. Install & Run React
+### 2.2. Install & Run React
  - Create React App으로, React Project를 설치합니다.
     ```
     npx create-react-app [project_name]
@@ -39,14 +40,14 @@ Project - React Post
     npm start
     ```
 
-## 2.3. Bootstrap
+### 2.3. Bootstrap
  - public/index.html에 아래의 코드를 삽입하여 사용합니다.
    ```
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
    ```
 
-## 2.4. Json-server
+### 2.4. Json-server
  - install json server
    ```
    npm install json-server
@@ -82,25 +83,25 @@ Project - React Post
   },
   ```
 
-## 2.5. Axios
+### 2.5. Axios
  - install axios
    ```
    npm install axios
    ```
 
-## 2.6 React Router dom
+### 2.6 React Router dom
  - install react-router-dom
    ```
    npm install react-router-dom
    ```
 
-## 2.7 React typeit
+### 2.7 React typeit
  - install typeit(ract)
    ```
    npm i typeit-react
    ```
 
-## 2.8 FontAwesome
+### 2.8 FontAwesome
  - install 
    ```
    npm i --save @fortawesome/fontawesome-svg-core
@@ -109,19 +110,26 @@ Project - React Post
    ```
  - use : https://hymndev.tistory.com/47
 
-## 2.9 Prop-types
+### 2.9 Prop-types
  - install 
    ```
    npm install prop-types
    ```
 
-# 3. 느낀 점
+### 2.10 history
+ - react-router에서, history가 사라졌으니, 라이브러리를 따로 설치합니다.
+   ```
+   npm install history
+   ```
 
-## 3.1. route-route-dom version update
-- 예전에 강의를 보고 진행했을 때는 ```<Switch>``` 내부에 ```<Route>```를 사용하는 방식으로 진행하였었는데, 업데이트에 따라 사용법이 바뀐 것 때문에 route구현부에 대해 고민을 많이 하였습니다.
+## 3. 느낀 점
+
+### 3.1. route-route-dom version update
+- 예전에 강의를 보고 진행했을 때는 ```<Switch>``` 내부에 ```<Route>```를 사용하는 방식으로 진행하였었는데, 업데이트에 따라 사용법이 바뀐 것 때문에 route 구현부에 대해 고민을 많이 하였습니다.
+
 - 이를 통해 개발자가 지속적으로 공부해야 하는 이유에 대해 다시 한 번 자각할 수 있었습니다.
 
-## 3.2. css
+### 3.2. css
  - 이 부분은 개선사항인데, 예전에는 react 문법 자체를 좇느라 css부분에서 아쉬운 설계를 진행했었습니다.
  - 이번에는, 다시 프로젝트를 만들면서 좀 더 심미적인 화면을 만들고자 노력하였습니다.
  - reset.css, fontAwesome, 최근에 알게 된 애니메이션 라이브러리(Typeit)를 HTML에서만 적용해보았는데, 이번에 React에 직접 적용해보는 과정을 거쳤습니다.  

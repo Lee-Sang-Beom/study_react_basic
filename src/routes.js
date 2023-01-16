@@ -22,6 +22,7 @@ const routes = [
     component: <EditPage />,
   },
   {
+    // 동적으로 변경되는 값은 []:name]으로 관리. 해당 페이지에서 useParams로 받을 수 있음
     path: "/blogs/:id", // 순서 중요
     component: <ShowPage />,
   },

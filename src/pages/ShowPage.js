@@ -5,6 +5,8 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import { createBrowserHistory } from "history";
 
 export default function ShowPage() {
+  // 임의의 환경(브라우저까지 포함)에서 구동되는 JavaSciprt 애플리케이션에서 세션 히스토리(방문 기록)의 관리와 내비게이션 등을 쉽게 할 수 있도록 도와주는 라이브러리이다.
+  // history 객체는 history 패키지가 제공하는 createBrowserHistory() 함수를 호출하면 생성할 수 있다.
   const history = createBrowserHistory();
 
   // 구조분해 할당 {}
@@ -53,9 +55,7 @@ export default function ShowPage() {
               뒤로가기
             </button>
           </div>
-
           <hr />
-
           <pre className="show_blog_desc_text">{desc}</pre>
         </div>
       )}

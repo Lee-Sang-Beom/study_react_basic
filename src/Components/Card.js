@@ -13,13 +13,13 @@ export default function Card({ children, onClick, title }) {
   );
 }
 
-Card.propTypes = {
+Card.propTypes = { 
   title: PropTypes.string.isRequired, // string, 필수
   children: PropTypes.element, // 컴포넌트
   onClick: PropTypes.func, // 함수
 }
 
-Card.defaultProps = {
+Card.defaultProps = {  // props를 전달받지 않은 경우, default값 설정
   children: null,
   onClick: ()=>{}, // 빈 함수
 }

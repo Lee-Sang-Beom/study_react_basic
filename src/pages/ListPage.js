@@ -32,7 +32,6 @@ export default function ListPage() {
   
     });
 
-    
     window.alert("삭제되었습니다.");
   };
 
@@ -87,6 +86,8 @@ export default function ListPage() {
           </Link>
         </div>
       </div>
+
+      {/* http://localhost:3001/posts의 data를 map()함수를 이용하여 출력*/}
       {renderList()}
     </>
   );

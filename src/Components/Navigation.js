@@ -1,4 +1,3 @@
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBlog } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -9,8 +8,12 @@ export default function Navigation() {
       <nav className="navbar navbar-expand navbar-dark bg-dark ">
         <div className="container">
           {/* main */}
-          <Link className="nav-link active me-1" aria-current="page" to="/" > 
-             <FontAwesomeIcon icon={faBlog} type="button" className="text-white btn btn-lg border border-0" />
+          <Link className="nav-link active me-1" aria-current="page" to="/">
+            <FontAwesomeIcon
+              icon={faBlog}
+              type="button"
+              className="text-white btn btn-lg border border-0"
+            />
           </Link>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
@@ -28,11 +31,7 @@ export default function Navigation() {
 
               {/* blogs */}
               <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to="/blogs"
-                >
+                <Link className="nav-link" aria-current="page" to="/blogs">
                   <button
                     type="button"
                     className="btn btn-outline-light border border-0 fw-semibold"
@@ -60,11 +59,7 @@ export default function Navigation() {
 
               {/* blogs_edit */}
               <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to="/blogs/edit"
-                >
+                <Link className="nav-link" aria-current="page" to="/blogs/edit">
                   <button
                     type="button"
                     className="btn btn-outline-light border border-0 fw-semibold"
